@@ -1,0 +1,59 @@
+\documentclass[a4paper]{article}
+
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+%\usepackage[top=1cm, bottom=1cm, left=1cm, right=1cm]{geometry}
+
+
+\begin{document}
+
+\begin{figure}
+
+\begin{tikzpicture}
+\begin{axis}[
+ % ybar, % remplace la ligne (par defaut) par les barre d'histogramme
+  %axis x line=bottom,  % affiche uniquement axe bas
+  %axis y line=left, % affiche axe gauche
+  width=15cm, 
+ % height=15cm,
+  xlabel={Année-récole (août à juillet)}, %label x
+  ylabel={Prix (\emph{en florin})},  % label y
+  legend entries={froment,seigle},
+  title={Prix de la coupe de froment et de seigle au marché d'Annecy\footnotemark}, % titre du graphique
+  xtick={1,2,3,4,5,6,7,8,9,10,11}, %rappel des valeurs x pour eviter les pb de placement
+  xticklabels={1690,1691,1692,1692,1694,1695,1696,1697,1698,1699,1700} %label des point absyss.
+  ]
+  
+  \addplot+[mark=none,smooth] coordinates {
+  (1,17.29) (2,20.83) (3,23.08) (4,35.36) (5,15.01) (6,13.15) (7,14.62) (8,18.53) (9,27.54) (10,19.34) (11,18.13)
+   };
+
+ \addplot+[mark=none,smooth,unbounded coords=jump] coordinates {
+   (1,13.92) (2,17.58) (3,19.9) (4,nan) (5,nan) (6,9.4) (7,10.92) (8,14.31) (9,21.42) (10,17.28) (11,13.82) 
+ };
+
+\end{axis}
+
+
+
+\end{tikzpicture}
+
+\caption{Données : J. Nicolas, \textit{La Savoie au \textsc{XVIIIe}}, 1978.}
+
+
+
+
+
+
+\end{figure}
+
+
+
+
+
+
+\end{document}
